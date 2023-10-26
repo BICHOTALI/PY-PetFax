@@ -7,7 +7,8 @@ def create_app():
     def hello():
         return "Hello, PetFax!"
     
-    @app.route('/pets')
-    def index():
-        return "These are all the pets we have available!"
+    # register blueprint
+    from . import pet
+    app.register_blueprint(pet.bp)
+
     return app
